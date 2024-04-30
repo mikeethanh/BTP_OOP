@@ -143,7 +143,7 @@ bool actionWithCauTruyVan(){
 	cout << "Chon cau truy van: " << endl;
 	int choice; cin >> choice; cin.ignore();
 	if(choice == 1){
-		//
+		 qltv.cau1("tt001");
     }else if(choice == 2){
 		//
 	}else if(choice == 3){

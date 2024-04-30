@@ -1,11 +1,7 @@
 #include <bits/stdc++.h>
-#include "QuanLySachVaTacGia.cpp"
-#include "QuanLyThuThu.cpp"
-#include "QuanLySinhVienMuonSach.cpp"
-
 using namespace std;
 
-class QuanLyCauTruyVan {
+class QuanLyCauTruyVan{
 private:
     QuanLySinhVienMuonSach qlsvms;
     QuanLySachVaTacGia qlsvtg;
@@ -150,15 +146,15 @@ void cau7() {
 }
 };
 
-//test
-int main() {
-    QuanLyCauTruyVan quanLy;
-    //quanLy.cau1("tt001");
-    //quanLy.cau2();
-    //quanLy.cau3();
-    //quanLy.cau4();
-    //quanLy.cau5();
-    //quanLy.cau6();
-    //quanLy.cau7();
-    return 0;
-}
+// //test
+// int main() {
+//     QuanLyCauTruyVan quanLy;
+//     //quanLy.cau1("tt001");
+//     //quanLy.cau2();
+//     //quanLy.cau3();
+//     //quanLy.cau4();
+//     //quanLy.cau5();
+//     //quanLy.cau6();
+//     //quanLy.cau7();
+//     return 0;
+// }
