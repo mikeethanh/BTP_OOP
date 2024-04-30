@@ -1,0 +1,19 @@
+6
+sv001
+Nguyen Tuan Kiet
+QT02
+sv002
+Nguyen Tuan Minh
+QT02
+sv003
+Tran Tien Dung
+QT02
+sv004
+Nguyen Le Ngoc Hai
+QT04
+sv005
+Nguyen Mai Thanh
+QT05
+sv006
+Nguyen Minh Tien
+QT06
