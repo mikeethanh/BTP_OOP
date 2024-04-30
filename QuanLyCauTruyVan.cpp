@@ -7,11 +7,10 @@ private:
     QuanLySachVaTacGia qlsvtg;
 
 public:
-    // Cau truy van so 1: Hay lay ra danh sach sach muon cua cac phieu muon co ma thu thu bang tt001
+    //1. Hay lay ra danh sach sach muon cua cac phieu muon co ma thu thu bang tt001?
     void cau1(string maThuThu) {
         bool found = false;
 
-        // Lay danh sach phieu muon tu QuanLySinhVienMuonSach
         vector<PhieuMuon> listPhieuMuon = qlsvms.getListPhieuMuon();
 
         cout << "Danh sach sach muon cua cac phieu muon co ma thu thu la " << maThuThu << ":" << endl;
@@ -21,7 +20,6 @@ public:
                 cout << "Ma phieu muon: " << pm.getMaPhieuMuon() << endl;
                 cout << "Danh sach sach muon: ";
 
-                // Lay danh sach sach tu QuanLySachVaTacGia
                 vector<Sach> listSach = qlsvtg.getListSach();
 
                 for (auto maSach : pm.getDanhSachSachMuon()) {
@@ -39,7 +37,7 @@ public:
         }
     }
 
-    // Cau truy van so 2: Hãy lấy ra những sách có thể loại là văn học và được thêm vào từ kho có mã kho là 1
+    //2. Hay lay ra nhung sach co the loai la van hoc va duoc them vao tu kho co ma kho la 1?
     void cau2() {
         cout << "Nhung cuon sach co the loai la van hoc va duoc them tu kho co ma kho 1 la :" << endl;
 
@@ -52,6 +50,7 @@ public:
         }
     }
 
+    //3. Hay cho biet 3 cuon sach ma sinh vien muon nhieu nhat trong nam 2024?
     void cau3() {
         cout << "Ba cuon sach sinh vien muon nhieu nhat trong nam 2024 la :" << endl;
 
@@ -87,6 +86,7 @@ public:
         }
     }
 
+    //4. Hay cho biet nhung cuon sach co so luong trong thu vien lon hon 15 va lay ra ma tac gia?
     void cau4() {
         cout << "Cac cuon sach co so luong trong thu vien lon hon 15 va ten tac gia cua tung cuon la:" << endl;
 
@@ -99,6 +99,7 @@ public:
         }
     }
 
+    //5. Hay cho biet nhung sinh vien muon sach trong nam 2024?
     void cau5() {
         cout << "Nhung sinh vien muon sach trong nam 2024 la:" << endl;
 
@@ -115,6 +116,7 @@ public:
         }
     }
 
+    //6. Hay cho biet tong so phieu muon trong nam 2024?
     void cau6() {
         cout << "Tong so phieu muon trong nam 2024 la: ";
 
@@ -133,17 +135,18 @@ public:
         cout << count << endl;
     }
 
-void cau7() {
-    cout << "Ma tac gia cua cac cuon sach co ma the loai thu 4 la: " << endl;
+    //7. Hay cho biet ma tac gia cua nhung cuon sach co ma the loai la 4?
+    void cau7() {
+        cout << "Ma tac gia cua cac cuon sach co ma the loai thu 4 la: " << endl;
 
-    vector<Sach> listSach = qlsvtg.getListSach();
+        vector<Sach> listSach = qlsvtg.getListSach();
 
-    for (auto &s : listSach) {
-        if (s.getMaLoaiSach() == "4") {
-            cout << "Ma sach: " << s.getMaSach() << ", Ma tac gia: " << s.getMaTacGia() << endl;
+        for (auto &s : listSach) {
+            if (s.getMaLoaiSach() == "4") {
+                cout << "Ma sach: " << s.getMaSach() << ", Ma tac gia: " << s.getMaTacGia() << endl;
+            }
         }
     }
-}
 };
 
 // //test
