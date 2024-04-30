@@ -144,23 +144,23 @@ bool actionWithCauTruyVan(){
 	int choice; cin >> choice; cin.ignore();
 	if(choice == 1){
 		 qltv.cau1("tt001");
-    }else if(choice == 2){
-		//
-	}else if(choice == 3){
-		//
+    }else if(choice == 2) {
+		qltv.cau2();
+	}else if(choice == 3) {
+		qltv.cau3();
 	}
 	else if(choice == 4) {
-		//
+		qltv.cau4();
 	}
-	else if(choice == 5){
-        //
-    }else if(choice == 6){
-		//
+	else if(choice == 5) {
+        qltv.cau5();
+    }else if(choice == 6) {
+		qltv.cau6();
 	}
 	else if(choice == 7) {
-		//
+		qltv.cau7();
 	}
-	else if(choice == 8){
+	else if(choice == 8) {
 		return false;
 	}
 	return actionWithLastChoice();
