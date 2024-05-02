@@ -23,7 +23,7 @@ public:
 
     bool isValidPhoneNumber(const string& phoneNumber) {
         // Số điện thoại hợp lệ nếu có đúng 10 chữ số và tất cả các ký tự là số
-        if (phoneNumber.length() != 10 || phoneNumber.length() != 11)
+        if (phoneNumber.length() != 10 && phoneNumber.length() != 11)
             return false;
         for (char c : phoneNumber) {
             if (!isdigit(c))

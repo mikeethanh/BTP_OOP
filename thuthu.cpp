@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 class ThuThu {
     string maThuThu;
     string tenThuThu;
@@ -17,15 +14,15 @@ public:
     string getSoDienThoaiThuThu() { return soDienThoaiThuThu; }
 
     bool isValidPhoneNumber(const string& phoneNumber) {
-        // Số điện thoại hợp lệ nếu có đúng 10 chữ số và tất cả các ký tự là số
-        if (phoneNumber.length() != 10 || phoneNumber.length() != 11)
+    // Số điện thoại hợp lệ nếu có đúng 10 hoặc 11 chữ số và tất cả các ký tự là số
+    if (phoneNumber.length() != 10 && phoneNumber.length() != 11)
+        return false;
+    for (char c : phoneNumber) {
+        if (!isdigit(c))
             return false;
-        for (char c : phoneNumber) {
-            if (!isdigit(c))
-                return false;
-        }
-        return true;
     }
+    return true;
+}
 
     bool isValidMaThuThu(const string& maTT) {
         // Mã thủ thư hợp lệ nếu có đúng định dạng ttXXX
