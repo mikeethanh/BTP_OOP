@@ -5,7 +5,19 @@
 using namespace std;
 
 class QuanLyThuThu{
+public:	
 	vector<ThuThu> listThuThu;
+	
+	QuanLyThuThu(){
+		getThuThuDataFromFile("inputThuThu.txt");
+	}
+	
+	~QuanLyThuThu(){
+		writeThuThuDataToFile("inputThuThu.txt");
+	}
+	
+	
+	// check is in list
 	
 	bool isInListThuThu(string maThuThu){
 		for(auto tt: listThuThu){
@@ -15,14 +27,8 @@ class QuanLyThuThu{
 		}
 		return false;
 	}
-public:
-	QuanLyThuThu(){
-		getThuThuDataFromFile("inputThuThu.txt");
-	}
 	
-	~QuanLyThuThu(){
-		writeThuThuDataToFile("inputThuThu.txt");
-	}
+	// get
 	
 	void getThuThuDataFromFile(string filePath){
 		fstream file;
@@ -49,6 +55,8 @@ public:
 		
 		file.close();
 	}
+	
+	// write
 
 	void writeThuThuDataToFile(string filePath){
 		fstream file;
@@ -69,7 +77,8 @@ public:
 		file.close();
 	}
 
-	
+
+	// them
 	
 	void themThuThu(){
 		ThuThu tt;
@@ -82,6 +91,8 @@ public:
 			cout << "Ma thu thu da ton tai" << endl;	
 		}
 	}
+	
+	//xoa
 	
 	void xoaThuThu(){
 		string maThuThu;
@@ -103,10 +114,20 @@ public:
 		}
 	}
 	
+	// print lists
+	
 	void printListThuThu(){
 		for(ThuThu tt: listThuThu){
 			tt.xuat();
 		}
+	}
+	
+		
+	void printListMaThuThu(){
+		for(auto tt: listThuThu){
+			cout << tt.getMaThuThu() << " ";
+		}
+		cout << endl;
 	}
 	
 };

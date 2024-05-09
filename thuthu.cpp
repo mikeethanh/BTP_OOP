@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class ThuThu {
     string maThuThu;
     string tenThuThu;

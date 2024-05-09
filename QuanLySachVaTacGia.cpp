@@ -11,11 +11,23 @@
 using namespace std;
 
 class QuanLySachVaTacGia{
+public:
 	vector<Sach> listSach;
 	vector<LoaiSach> listLoaiSach;
 	vector<TacGia> listTacGia;
 	vector<Kho> listKho;
 	
+	QuanLySachVaTacGia(){
+		getAuthorDataFromFile("inputTacGia.txt");
+		getBooksDataFromFile("inputSach.txt");
+	}
+
+	~QuanLySachVaTacGia(){
+		writeBooksDataToFile("inputSach.txt");
+		writeAuthorsDataToFile("inputTacGia.txt");
+	}
+	
+	// check is in lists
 	bool isInListTacGia(string maTacGia){
 		for(TacGia tg: listTacGia){
 			if(tg.getMaTacGia() == maTacGia) {
@@ -52,8 +64,16 @@ class QuanLySachVaTacGia{
 		return false;
 	}
 	
-	
-public:
+	//get
+		
+	int getSoLuongSach(string maSach){
+		for(Sach s: listSach){
+			if(s.getMaSach() == maSach){
+				return s.getSoLuong();
+			}
+		}
+	}
+
     vector<Sach> getListSach() {
         return listSach;
     }
@@ -120,7 +140,17 @@ public:
 		}
 		file.close();
 	}
+	
+	string getTenKhoHienCo(string maKho){
+		for(Kho k: listKho){
+			if(k.getMaKho() == maKho){
+				return k.getTenKho();
+			}
+		}
+		return "";
+	}
 
+	// write
 	
 	void writeBooksDataToFile(string filePath){
 		fstream file;
@@ -159,15 +189,7 @@ public:
 		file.close();
 	}
 
-	QuanLySachVaTacGia(){
-		getAuthorDataFromFile("inputTacGia.txt");
-		getBooksDataFromFile("inputSach.txt");
-	}
-
-	~QuanLySachVaTacGia(){
-		writeBooksDataToFile("inputSach.txt");
-		writeAuthorsDataToFile("inputTacGia.txt");
-	}
+	// xoa
 
 	void xoaTacGia(){
 		cout << "Nhap ma tac gia can xoa: " << endl;
@@ -185,122 +207,19 @@ public:
 			cout << "Xoa tac gia thanh cong" << endl;
 		}	
 	}
-	
 
-	
-	void themTacGia(){
-		TacGia tg;
-		tg.nhap();
-		if(!isInListTacGia(tg.getMaTacGia())){
-			listTacGia.push_back(tg);
-			cout << "Tac gia da them thanh cong" << endl; 
-		} else{
-			cout << "Tac gia da ton tai trong danh sach" << endl;
-		}
-	}
-	
-	void themTacGia(TacGia tg){
-		if(!isInListTacGia(tg.getMaTacGia())){
-			listTacGia.push_back(tg);
-		}
-	}
-	
-	
-	void printListTacGia(){
-		int i = 1;
-		for(TacGia tg: listTacGia){
-			cout << i << ". ";
-			tg.xuat();
-			i++;
-		}
-	}
-	
-	void printBooksByAuthorName(){
-		cout << "Danh sach cac tac gia va tac pham: " << endl;
-		for(TacGia tg: listTacGia){
-			cout << "Tac gia: " << tg.getTenTacGia() << endl;
-			cout << "Cac dau sach: " << endl;
-			for(Sach s: listSach){
-				if(s.getMaTacGia() == tg.getMaTacGia()){
-					cout << s.getTenSach() << " | "; 
-				}
-			}
-			cout << endl;
-		}
-	}
-	
-	void updateKhoValue(){
-		listKho.clear();
-		for(Sach s: listSach){
-			if(!isInListKho(s.getMaKho())){
-				Kho k(s.getMaKho());
-				listKho.push_back(k);
-			}
-		}
-	}
-	
-	void updateLoaiSach(){
-		listLoaiSach.clear();
-		for(Sach s: listSach){
-			if(!isInListLoaiSach(s.getMaLoaiSach())){
-				LoaiSach ls(s.getMaLoaiSach());
-				listLoaiSach.push_back(ls);
-			}
-		}
-	}
-	
-	string getTenKhoHienCo(string maKho){
-		for(Kho k: listKho){
-			if(k.getMaKho() == maKho){
-				return k.getTenKho();
-			}
-		}
-		return "";
-	}
-	
-	void searchBookInfo(){
-		string maSach;
-		cout << "Nhap ma sach can tim: " << endl;
-		getline(cin, maSach);
-		
+	void xoaSach(string maSach){
 		if(!isInListSach(maSach)){
-			cout << "Khong tim thay sach" << endl;
 			return;
-		}
-		
-		for(Sach s: listSach){
-			if(s.getMaSach()==maSach){
-				cout << "Ten sach: " << s.getTenSach() << ", so luong: " << s.getSoLuong() << ", kho: " << getTenKhoHienCo(s.getMaKho()) << endl;
-			}
-		}
-	}
-	
-	void printListSach(){
-		for(auto x: listSach){
-			x.xuat();
-		}
-	}
-	
-	
-	void printListLoaiSach(){
-		for(auto x: listLoaiSach){
-			x.xuat();
-		}
-	}
-
-
-	
-	void printBooksByGenre(){
-		cout << "Danh sach cac the loai va tac pham: " << endl;
-		for(LoaiSach ls: listLoaiSach){
-			cout << "The loai: " << ls.getTenLoaiSach() << endl;
-			cout << "Cac dau sach: " << endl;
-			for(Sach s: listSach){
-				if(s.getMaLoaiSach() == ls.getMaLoaiSach()){
-					cout << s.getTenSach() << " | "; 
+		} else{
+			for(int i = 0; i < listSach.size(); i++){
+				if(maSach == listSach.at(i).getMaSach()){
+					listSach.erase(listSach.begin()+i);
+					i = 0;
 				}
 			}
-			cout << endl;
+			updateKhoValue();
+			updateLoaiSach();
 		}
 	}
 		
@@ -320,6 +239,25 @@ public:
 			cout << "Xoa sach thanh cong" << endl;
 			updateKhoValue();
 			updateLoaiSach();
+		}
+	}
+	
+	
+	// them
+	void themTacGia(){
+		TacGia tg;
+		tg.nhap();
+		if(!isInListTacGia(tg.getMaTacGia())){
+			listTacGia.push_back(tg);
+			cout << "Tac gia da them thanh cong" << endl; 
+		} else{
+			cout << "Tac gia da ton tai trong danh sach" << endl;
+		}
+	}
+	
+	void themTacGia(TacGia tg){
+		if(!isInListTacGia(tg.getMaTacGia())){
+			listTacGia.push_back(tg);
 		}
 	}
 	
@@ -384,6 +322,127 @@ public:
 			}
 		} else{
 			listSach.push_back(s);
+		}
+	}	
+	
+	
+	// print lists
+	void printListTacGia(){
+		int i = 1;
+		for(TacGia tg: listTacGia){
+			cout << i << ". ";
+			tg.xuat();
+			i++;
+		}
+	}
+	
+	void printBooksByAuthorName(){
+		cout << "Danh sach cac tac gia va tac pham: " << endl;
+		for(TacGia tg: listTacGia){
+			cout << "Tac gia: " << tg.getTenTacGia() << endl;
+			cout << "Cac dau sach: " << endl;
+			for(Sach s: listSach){
+				if(s.getMaTacGia() == tg.getMaTacGia()){
+					cout << s.getTenSach() << " | "; 
+				}
+			}
+			cout << endl;
+		}
+	}
+	
+	void printListSach(){
+		for(auto x: listSach){
+			x.xuat();
+		}
+	}
+	
+	
+	void printListLoaiSach(){
+		for(auto x: listLoaiSach){
+			x.xuat();
+		}
+	}
+	
+	void printListMaSach(){
+		for(Sach s: listSach){
+			if(s.getSoLuong() != 0){
+				cout << s.getMaSach() << " ";	
+			}
+		}
+		cout << endl;
+	}
+	
+	void printBooksByGenre(){
+		cout << "Danh sach cac the loai va tac pham: " << endl;
+		for(LoaiSach ls: listLoaiSach){
+			cout << "The loai: " << ls.getTenLoaiSach() << endl;
+			cout << "Cac dau sach: " << endl;
+			for(Sach s: listSach){
+				if(s.getMaLoaiSach() == ls.getMaLoaiSach()){
+					cout << s.getTenSach() << " | "; 
+				}
+			}
+			cout << endl;
+		}
+	}
+	
+	
+	// update lists
+	void updateKhoValue(){
+		listKho.clear();
+		for(Sach s: listSach){
+			if(!isInListKho(s.getMaKho())){
+				Kho k(s.getMaKho());
+				listKho.push_back(k);
+			}
+		}
+	}
+	
+	void updateLoaiSach(){
+		listLoaiSach.clear();
+		for(Sach s: listSach){
+			if(!isInListLoaiSach(s.getMaLoaiSach())){
+				LoaiSach ls(s.getMaLoaiSach());
+				listLoaiSach.push_back(ls);
+			}
+		}
+	}
+	
+	void giamSoLuongSach(string maSach){	
+		for(int i = 0; i < listSach.size(); i++){
+			Sach s = listSach.at(i);
+			if(s.getMaSach() == maSach && s.getSoLuong() != 0){
+				listSach.at(i).setSoLuong(-1);
+				return;
+			}
+		}
+	}
+	
+	void tangSoLuongSach(string maSach){	
+		for(int i = 0; i < listSach.size(); i++){
+			if(listSach.at(i).getMaSach() == maSach){
+				listSach.at(i).setSoLuong(1);
+				return;
+			}
+		}
+	}
+	
+	// tim kiem
+	
+	void searchBookInfo(){
+		string maSach;
+		cout << "Nhap ma sach can tim: " << endl;
+		getline(cin, maSach);
+		
+		if(!isInListSach(maSach)){
+			cout << "Khong tim thay sach" << endl;
+			return;
+		}
+		
+		for(Sach s: listSach){
+			if(s.getMaSach()==maSach){
+				cout << "Ten sach: " << s.getTenSach() << ", so luong: " << s.getSoLuong() << ", kho: " << getTenKhoHienCo(s.getMaKho()) << endl;
+			}
 		}
 	}
 };

@@ -18,6 +18,7 @@ bool actionWithLastChoice(){
 }
 
 bool actionWithThuThu(){
+	cout << endl;
 	cout << "1. Them thu thu" << endl;
 	cout << "2. Xoa thu thu" << endl;
 	cout << "3. Danh sach thu thu" << endl;
@@ -37,7 +38,7 @@ bool actionWithThuThu(){
 }
 
 bool actionWithSinhVien(){
-	cout << "Chon thao tac: " << endl;
+	cout << endl;
 	cout << "1. Them sinh vien" << endl;
 	cout << "2. Xoa sinh vien" << endl;
 	cout << "3. Danh sach sinh vien" << endl;
@@ -63,12 +64,13 @@ bool actionWithSinhVien(){
 
 
 bool actionWithSach(){
-	cout << "Chon thao tac: " << endl;
+	cout << endl;
 	cout << "1. Them sach" << endl;
 	cout << "2. Xoa sach" << endl;
 	cout << "3. Tim sach" << endl;
 	cout << "4. Danh sach the loai sach" << endl;
 	cout << "5. Quay Lai" << endl;
+	cout << "Chon thao tac: ";
 	int choice; cin >> choice; cin.ignore();
 	if(choice == 1){
 		qltv.themSach();
@@ -87,11 +89,12 @@ bool actionWithSach(){
 
 
 bool actionWithTacGia(){
+	cout << endl;
 	cout << "1. Them tac gia" << endl;
 	cout << "2. Xoa tac gia" << endl;
 	cout << "3. Danh sach tac gia" << endl;
 	cout << "4. Quay Lai" << endl;
-	cout << "Chon thao tac: " << endl;
+	cout << "Chon thao tac: ";
 	int choice; cin >> choice; cin.ignore();
 	if(choice == 1){
 		qltv.themTacGia();
@@ -107,12 +110,14 @@ bool actionWithTacGia(){
 
 
 bool actionWithTraMuonSach(){
+	cout << endl;
 	cout << "1. Them phieu muon" << endl;
 	cout << "2. Xoa phieu muon" << endl;
 	cout << "3. Danh sach phieu muon" << endl;
 	cout << "4. Thong tin chi tiet phieu muon" << endl;
-	cout << "5. Quay Lai" << endl;
-	cout << "Chon thao tac: " << endl;
+	cout << "5. Tra sach" << endl;
+	cout << "6. Quay Lai" << endl;
+	cout << "Chon thao tac: ";
 	int choice; cin >> choice; cin.ignore();
 	if(choice == 1){
 		qltv.themPhieuMuon();
@@ -123,6 +128,8 @@ bool actionWithTraMuonSach(){
 	} else if(choice == 4){
 		qltv.thongTinPhieuMuon();
 	} else if(choice == 5){
+		qltv.themPhieuTra();
+	} else if(choice == 6){
 		return false;
 	}
 	return actionWithLastChoice();
@@ -130,8 +137,9 @@ bool actionWithTraMuonSach(){
 
 
 bool actionWithCauTruyVan(){
+	cout << endl;
     // In ra 8 câu truy vấn
-   cout << "Cau truy van:" << endl;
+   	cout << "Cau truy van:" << endl;
 	cout << "1. Hay lay ra danh sach sach muon cua cac phieu muon co ma thu thu bang tt001?" << endl;
 	cout << "2. Hay lay ra nhung sach co the loai la van hoc va duoc them vao tu kho co ma kho la 1?" << endl;
 	cout << "3. Hay cho biet 3 cuon sach ma sinh vien muon nhieu nhat trong nam 2024?" << endl;
@@ -140,7 +148,7 @@ bool actionWithCauTruyVan(){
 	cout << "6. Hay cho biet tong so phieu muon trong nam 2024?" << endl;
 	cout << "7. Hay cho biet ma tac gia cua nhung cuon sach co ma the loai la 4?" << endl;
 	cout << "8. Quay Lai" << endl;
-	cout << "Chon cau truy van: " << endl;
+	cout << "Chon cau truy van: ";
 	int choice; cin >> choice; cin.ignore();
 	if(choice == 1){
 		 qltv.cau1("tt001");
@@ -168,6 +176,7 @@ bool actionWithCauTruyVan(){
 
 
 void printChoices(){
+	cout << endl;
 	cout << "1. Thu Thu" << endl;
 	cout << "2. Sinh Vien" << endl;
 	cout << "3. Sach" << endl;
@@ -175,7 +184,7 @@ void printChoices(){
 	cout << "5. Tra/Muon Sach" << endl;
 	cout << "6. Thuc hien cau truy van" << endl;
 	cout << "7. Thoat" << endl;
-	cout << "Chon doi tuong muon thao tac: " << endl;
+	cout << "Chon doi tuong muon thao tac: ";
 }
 
 

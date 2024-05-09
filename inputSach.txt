@@ -2,21 +2,21 @@
 sach001
 Tay Du Ky
 1
-20
+18
 1998
 1
 tg001
 sach002
 The Art of Game Design
 2
-10
+9
 2012
 6
 tg005
 sach003
 Stardust
 1
-5
+7
 1999
 1
 tg002
@@ -30,7 +30,7 @@ tg006
 sach005
 Giao Trinh Dai So Tuyen Tinh
 3
-20
+21
 2022
 3
 tg006
@@ -44,14 +44,14 @@ tg004
 sach007
 How To Stop Worrying And Start Living
 4
-5
+7
 1990
 4
 tg004
 sach008
 American Gods
 1
-10
+11
 2001
 1
 tg002
